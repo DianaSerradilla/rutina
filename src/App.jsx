@@ -5,6 +5,8 @@ import EstructuraSemanal from './pages/EstructuraSemanal';
 import TrainingSplit from './pages/TrainingSplit';
 import Databases from './pages/Databases';
 
+import HevyStats from './pages/HevyStats';
+
 function App() {
   return (
     <HashRouter>
@@ -14,6 +16,7 @@ function App() {
           <Route path="estructura" element={<EstructuraSemanal />} />
           <Route path="split" element={<TrainingSplit />} />
           <Route path="databases" element={<Databases />} />
+          <Route path="hevy" element={<HevyStats />} />
         </Route>
       </Routes>
     </HashRouter>

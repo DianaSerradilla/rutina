@@ -85,7 +85,7 @@ export default function TrainingSplit() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
         {/* INFO DEL MESOCICLO SELECCIONADO (Col Izq) */}
-        <section className="panel p-6 lg:col-span-1 h-fit">
+        <section className="panel p-6 lg:col-span-1 h-fit order-2 lg:order-1">
           <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2 border-b border-dark-700 pb-2">
             <Layers className="text-accent-blue" size={24} /> Información del Macro
           </h2>
@@ -108,7 +108,7 @@ export default function TrainingSplit() {
         </section>
 
         {/* SPLIT SEMANAL INTERACTIVO (Col Der) */}
-        <section className="panel p-6 lg:col-span-2 flex flex-col">
+        <section className="panel p-6 lg:col-span-2 flex flex-col order-1 lg:order-2">
           <h2 className="text-xl font-bold text-white mb-2 flex items-center gap-2 border-b border-dark-700 pb-2">
             <GitMerge className="text-accent-green" size={24} /> Desglose Semanal
           </h2>

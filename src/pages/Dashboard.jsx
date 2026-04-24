@@ -1,12 +1,17 @@
 import { useState, useEffect } from 'react';
-import { Target, ClipboardList, PlusCircle, Activity } from 'lucide-react';
+import { Target, ClipboardList, PlusCircle, Activity, Dumbbell } from 'lucide-react';
 import EstructuraSemanal from '../components/EstructuraSemanal';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { splitData } from '../data/routineData';
+import { supabase } from '../lib/supabase';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 export default function Dashboard() {
+  const [quickMeso, setQuickMeso] = useState('meso1');
+  const [quickWeek, setQuickWeek] = useState('week1');
+
   const [history, setHistory] = useState(() => {
     const saved = localStorage.getItem('rutina_weights_history');
     if (saved) return JSON.parse(saved);
@@ -18,33 +23,96 @@ export default function Dashboard() {
     return [];
   });
 
-  const [form, setForm] = useState({ 
-    date: new Date().toISOString().split('T')[0], 
-    note: 'Mesociclo 4', 
-    squat: '', deadlift: '', bench: '', pullups: '', dips: '' 
+  const [form, setForm] = useState({
+    date: new Date().toISOString().split('T')[0],
+    note: 'Mesociclo 4',
+    squat: '', deadlift: '', bench: '', pullups: '', dips: ''
   });
+
+  useEffect(() => {
+    async function fetchHistory() {
+      if (supabase) {
+        const { data, error } = await supabase
+          .from('progress_history')
+          .select('*')
+          .order('date', { ascending: true });
+
+        if (!error && data) {
+          const formatted = data.map(row => ({
+            id: row.id,
+            date: row.date,
+            note: row.note,
+            weights: {
+              squat: Number(row.squat),
+              deadlift: Number(row.deadlift),
+              bench: Number(row.bench),
+              pullups: Number(row.pullups),
+              dips: Number(row.dips)
+            }
+          }));
+          setHistory(formatted);
+          localStorage.setItem('rutina_weights_history', JSON.stringify(formatted));
+        }
+      }
+    }
+    fetchHistory();
+  }, []);
 
   useEffect(() => {
     localStorage.setItem('rutina_weights_history', JSON.stringify(history));
   }, [history]);
 
-  const handleSave = () => {
-    // Only save if at least one weight is provided
+  const currentWeights = history.length > 0 ? history[history.length - 1].weights : {};
+
+  const handleSave = async () => {
+    // Si el usuario no escribe un peso nuevo, arrastramos el peso de la última marca (currentWeights)
+    const newWeights = {
+      squat: form.squat !== '' ? Number(form.squat) : (currentWeights.squat || 0),
+      deadlift: form.deadlift !== '' ? Number(form.deadlift) : (currentWeights.deadlift || 0),
+      bench: form.bench !== '' ? Number(form.bench) : (currentWeights.bench || 0),
+      pullups: form.pullups !== '' ? Number(form.pullups) : (currentWeights.pullups || 0),
+      dips: form.dips !== '' ? Number(form.dips) : (currentWeights.dips || 0),
+    };
+
     const newRecord = {
       id: Date.now(),
       date: form.date,
       note: form.note,
-      weights: {
-        squat: Number(form.squat) || 0,
-        deadlift: Number(form.deadlift) || 0,
-        bench: Number(form.bench) || 0,
-        pullups: Number(form.pullups) || 0,
-        dips: Number(form.dips) || 0,
-      }
+      weights: newWeights
     };
-    setHistory([...history, newRecord].sort((a,b) => new Date(a.date) - new Date(b.date)));
+
+    const updatedHistory = [...history, newRecord].sort((a, b) => new Date(a.date) - new Date(b.date));
+    setHistory(updatedHistory);
     setForm({ ...form, squat: '', deadlift: '', bench: '', pullups: '', dips: '' });
+
+    if (supabase) {
+      const { error } = await supabase
+        .from('progress_history')
+        .insert([{
+          date: form.date,
+          note: form.note,
+          squat: newWeights.squat,
+          deadlift: newWeights.deadlift,
+          bench: newWeights.bench,
+          pullups: newWeights.pullups,
+          dips: newWeights.dips
+        }]);
+
+      if (error) {
+        console.error("Error saving to Supabase:", error);
+        alert("Error al guardar en Supabase. Se guardó localmente.");
+      }
+    }
   };
+
+  const getTodayId = () => {
+    const day = new Date().getDay(); // 0 is Sunday, 1 is Monday
+    if (day === 0) return 'd7';
+    return `d${day}`;
+  };
+
+  const todayId = getTodayId();
+  const todayRoutine = splitData[quickMeso]?.[quickWeek]?.days?.find(d => d.id === todayId);
 
   const targets = [
     { id: 'squat', title: 'SQUAT', target: 80, unit: 'kg', subtitle: 'Sin butt wink' },
@@ -54,9 +122,8 @@ export default function Dashboard() {
     { id: 'dips', title: 'FONDOS', target: 10, unit: 'reps', subtitle: 'Estrictos BW' },
   ];
 
-  // Get Latest Weights from history
   const latestRecord = history.length > 0 ? history[history.length - 1] : { weights: {} };
-  const currentWeights = latestRecord.weights || {};
+  // currentWeights ya se declaró arriba
 
   // Setup Line Chart Model
   const chartData = {
@@ -88,18 +155,61 @@ export default function Dashboard() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 animate-in fade-in duration-500">
-      
-      {/* HEVY INTEGRATION BUBBLE */}
-      <div className="lg:col-span-3 panel p-4 flex items-center justify-between border-l-4 border-purple-500">
-        <div className="flex items-center gap-3">
-           <Activity className="text-purple-400" size={20} />
-           <div>
-             <h3 className="text-sm font-bold text-white">Hevy Tracker</h3>
-             <p className="text-xs text-gray-400">
-               Usuario: @laddydi (Modo Local)
-             </p>
-           </div>
+
+      {/* QUICK ROUTINE VIEW (MOBILE OPTIMIZED) */}
+      <div className="lg:col-span-3 panel p-4 border-l-4 border-accent-blue bg-dark-900 shadow-lg">
+        <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-4 border-b border-dark-700 pb-3">
+          <div className="flex items-center gap-3">
+            <Dumbbell className="text-accent-blue" size={24} />
+            <div>
+              <h3 className="text-lg font-bold text-white">Vistazo Rápido - Hoy</h3>
+              <p className="text-xs text-gray-400">
+                Tu rutina para el gimnasio
+              </p>
+            </div>
+          </div>
+          <div className="flex gap-2">
+            <select
+              value={quickMeso}
+              onChange={(e) => setQuickMeso(e.target.value)}
+              className="bg-dark-800 border border-dark-700 text-white rounded p-2 text-sm focus:outline-none focus:border-accent-blue"
+            >
+              <option value="meso1">Meso 1</option>
+              <option value="meso2">Meso 2</option>
+              <option value="meso3">Meso 3</option>
+              <option value="meso4">Meso 4</option>
+            </select>
+            <select
+              value={quickWeek}
+              onChange={(e) => setQuickWeek(e.target.value)}
+              className="bg-dark-800 border border-dark-700 text-white rounded p-2 text-sm focus:outline-none focus:border-accent-blue"
+            >
+              <option value="week1">Sem 1</option>
+              <option value="week2">Sem 2</option>
+              <option value="week3">Sem 3</option>
+              <option value="week4">Sem 4 (Deload)</option>
+            </select>
+          </div>
         </div>
+
+        {todayRoutine ? (
+          <div>
+            <div className="flex justify-between items-center mb-2">
+              <strong className="text-white text-sm">{todayRoutine.dayName}</strong>
+              <span className="text-xs font-bold text-accent-green bg-dark-800 px-2 py-1 rounded border border-dark-700">{todayRoutine.split}</span>
+            </div>
+            <ul className="space-y-2 mt-3">
+              {todayRoutine.details.map((ex, idx) => (
+                <li key={idx} className="text-sm bg-dark-800 p-3 rounded flex flex-col gap-1 border border-dark-700">
+                  <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">{ex.type}</span>
+                  <span className="text-gray-200 whitespace-pre-line">{ex.desc}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p className="text-sm text-gray-500 italic">No hay rutina asignada para hoy.</p>
+        )}
       </div>
 
       {/* OBJETIVOS Y GRAFICA */}
@@ -109,15 +219,15 @@ export default function Dashboard() {
             <Target className="text-accent-green" size={24} /> Historial Evolutivo vs Metas
           </h2>
         </div>
-        
+
         {/* GRAPHIC */}
-        <div className="w-full h-64 mb-6">
+        <div className="hidden md:block w-full h-64 mb-6">
           {history.length > 0 ? (
             <Line data={chartData} options={chartOptions} />
           ) : (
-             <div className="h-full flex items-center justify-center text-gray-500 text-sm">
-               Agrega un registro para ver tu progresión
-             </div>
+            <div className="h-full flex items-center justify-center text-gray-500 text-sm">
+              Agrega un registro para ver tu progresión
+            </div>
           )}
         </div>
 
@@ -135,7 +245,7 @@ export default function Dashboard() {
                   {current} <span className="text-xs text-gray-400">{t.unit}</span>
                 </div>
                 <div className="w-full bg-dark-800 rounded-full h-1 mt-1">
-                  <div className={`h-1 rounded-full ${isCompleted ? 'bg-accent-green' : 'bg-accent-blue'}`} style={{width: `${percent}%`}}></div>
+                  <div className={`h-1 rounded-full ${isCompleted ? 'bg-accent-green' : 'bg-accent-blue'}`} style={{ width: `${percent}%` }}></div>
                 </div>
                 <div className="text-[9px] text-center mt-1 text-gray-400">{percent.toFixed(0)}% de {t.target}</div>
               </div>
@@ -149,28 +259,28 @@ export default function Dashboard() {
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2 border-b border-dark-700 pb-2">
           <PlusCircle className="text-accent-blue" size={24} /> Nueva Marca de Cierre
         </h2>
-        
+
         <div className="space-y-4">
           <div>
             <label className="text-xs text-gray-400 block mb-1">Fecha</label>
-            <input type="date" value={form.date} onChange={e => setForm({...form, date: e.target.value})} className="w-full bg-dark-900 border border-dark-700 text-white rounded p-2 text-sm focus:border-accent-blue outline-none" />
+            <input type="date" value={form.date} onChange={e => setForm({ ...form, date: e.target.value })} className="w-full bg-dark-900 border border-dark-700 text-white rounded p-2 text-sm focus:border-accent-blue outline-none" />
           </div>
           <div>
             <label className="text-xs text-gray-400 block mb-1">Nota (Ejem. Mesociclo 4)</label>
-            <input type="text" value={form.note} onChange={e => setForm({...form, note: e.target.value})} className="w-full bg-dark-900 border border-dark-700 text-white rounded p-2 text-sm focus:border-accent-blue outline-none" placeholder="Ej: Fin Mesociclo 4" />
+            <input type="text" value={form.note} onChange={e => setForm({ ...form, note: e.target.value })} className="w-full bg-dark-900 border border-dark-700 text-white rounded p-2 text-sm focus:border-accent-blue outline-none" placeholder="Ej: Fin Mesociclo 4" />
           </div>
-          
+
           <div className="pt-2 border-t border-dark-700">
             <div className="grid grid-cols-2 gap-3 mt-2">
               {targets.map(t => (
                 <div key={t.id}>
                   <label className="text-[10px] text-gray-400 block mb-1 font-mono">{t.title} ({t.unit})</label>
-                  <input type="number" placeholder={currentWeights[t.id] || "0"} value={form[t.id]} onChange={e => setForm({...form, [t.id]: e.target.value})} className="w-full bg-dark-900 border border-dark-700 text-white rounded py-1 px-2 text-sm focus:border-accent-blue outline-none" />
+                  <input type="number" placeholder={currentWeights[t.id] || "0"} value={form[t.id]} onChange={e => setForm({ ...form, [t.id]: e.target.value })} className="w-full bg-dark-900 border border-dark-700 text-white rounded py-1 px-2 text-sm focus:border-accent-blue outline-none" />
                 </div>
               ))}
             </div>
           </div>
-          
+
           <button onClick={handleSave} className="w-full bg-accent-blue hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors mt-2">
             Guardar Marcas
           </button>
@@ -180,7 +290,7 @@ export default function Dashboard() {
       {/* DETALLES Y JUSTIFICACIÓN DE OBJETIVOS (Move to bottom full width) */}
       <section className="panel p-6 lg:col-span-3 flex flex-col mt-2">
         <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2 border-b border-dark-700 pb-2">
-          <ClipboardList className="text-purple-400" size={24} /> Justificación Clínica y Metas (Hevy)
+          <ClipboardList className="text-purple-400" size={24} /> Justificación Clínica y Metas
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pr-2">
           {/* Objetivo 1 */}

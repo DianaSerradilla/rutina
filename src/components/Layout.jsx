@@ -68,6 +68,16 @@ export default function Layout() {
             <Database size={18} />
             Bases de Datos
           </NavLink>
+          
+          <NavLink 
+            to="/hevy" 
+            className={({ isActive }) => 
+              `flex items-center gap-2 px-4 py-2 rounded transition-colors ${isActive ? 'bg-dark-700 text-orange-500 font-semibold' : 'text-gray-400 hover:text-white hover:bg-dark-900'}`
+            }
+          >
+            <Activity size={18} className="text-orange-500" />
+            Hevy Analytics
+          </NavLink>
         </nav>
 
         {/* CONTENIDO DE CARGA (RUTAS) */}
