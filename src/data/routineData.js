@@ -30,12 +30,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 4 series x 8-10 reps."
+              "desc": "Remo con barra en agarre V | 4 series x 8-10 reps."
             },
             {
               "type": "Aislamiento Dorsal",
@@ -66,7 +66,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -94,7 +94,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR (Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -122,7 +122,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -150,7 +150,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -190,7 +190,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -236,12 +236,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 4 series x 4-6 reps (Carga alta)."
+              "desc": "Remo con barra en agarre V | 4 series x 4-6 reps (Carga alta)."
             },
             {
               "type": "Aislamiento Dorsal",
@@ -272,7 +272,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -300,7 +300,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -328,7 +328,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -356,7 +356,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -388,7 +388,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -434,12 +434,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 3 series x 3-5 reps (Pesado, RIR 0)."
+              "desc": "Remo con barra en agarre V | 3 series x 3-5 reps (Pesado, RIR 0)."
             },
             {
               "type": "Aislamiento",
@@ -462,7 +462,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -490,7 +490,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -518,7 +518,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -546,7 +546,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -570,7 +570,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -616,12 +616,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 2 series x 10-12 reps."
+              "desc": "Remo con barra en agarre V | 2 series x 10-12 reps."
             },
             {
               "type": "Aislamiento",
@@ -644,7 +644,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -672,7 +672,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -692,7 +692,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -716,7 +716,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -740,7 +740,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -784,7 +784,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -812,7 +812,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -836,7 +836,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -864,7 +864,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -888,7 +888,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -912,7 +912,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -958,7 +958,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -986,7 +986,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -1010,7 +1010,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1038,7 +1038,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -1062,7 +1062,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -1086,7 +1086,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1132,7 +1132,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -1160,7 +1160,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -1184,7 +1184,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1212,7 +1212,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -1236,7 +1236,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -1260,7 +1260,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1306,7 +1306,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -1334,7 +1334,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -1358,7 +1358,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1386,7 +1386,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -1410,7 +1410,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -1434,7 +1434,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1482,12 +1482,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 4 series x 8-10 reps."
+              "desc": "Remo con barra en agarre V | 4 series x 8-10 reps."
             },
             {
               "type": "Aislamiento Dorsal",
@@ -1510,7 +1510,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -1534,7 +1534,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1562,7 +1562,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -1586,7 +1586,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -1610,7 +1610,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1656,12 +1656,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 4 series x 4-6 reps (Carga alta)."
+              "desc": "Remo con barra en agarre V | 4 series x 4-6 reps (Carga alta)."
             },
             {
               "type": "Aislamiento",
@@ -1684,7 +1684,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -1708,7 +1708,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1736,7 +1736,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -1760,7 +1760,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -1784,7 +1784,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1830,12 +1830,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 3 series x 3-5 reps (RIR 0)."
+              "desc": "Remo con barra en agarre V | 3 series x 3-5 reps (RIR 0)."
             },
             {
               "type": "Aislamiento Dorsal",
@@ -1858,7 +1858,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -1882,7 +1882,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -1910,7 +1910,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -1934,7 +1934,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -1958,7 +1958,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2004,12 +2004,12 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
               "type": "Básico",
-              "desc": "Remo con máquina | 2 series x 10-12 reps."
+              "desc": "Remo con barra en agarre V | 2 series x 10-12 reps."
             },
             {
               "type": "Aislamiento Dorsal",
@@ -2032,7 +2032,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -2056,7 +2056,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2084,7 +2084,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -2108,7 +2108,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -2132,7 +2132,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2180,7 +2180,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -2208,7 +2208,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -2232,7 +2232,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2260,7 +2260,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -2284,7 +2284,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -2308,7 +2308,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2354,7 +2354,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -2382,7 +2382,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -2406,7 +2406,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2434,7 +2434,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -2458,7 +2458,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -2482,7 +2482,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2528,7 +2528,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -2556,7 +2556,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -2580,7 +2580,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2608,7 +2608,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -2632,7 +2632,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -2656,7 +2656,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2702,7 +2702,7 @@ const rawSplitData = {
         {
           "id": "d1",
           "dayName": "DÍA 1 (Lunes)",
-          "split": "PULL 2 (Gimnasio)",
+          "split": "PULL (Gimnasio)",
           "color": "blue",
           "details": [
             {
@@ -2730,7 +2730,7 @@ const rawSplitData = {
         {
           "id": "d2",
           "dayName": "DÍA 2 (Martes)",
-          "split": "PUSH 2 (Calistenia)",
+          "split": "PUSH (Calistenia)",
           "color": "purple",
           "details": [
             {
@@ -2754,7 +2754,7 @@ const rawSplitData = {
         {
           "id": "d3",
           "dayName": "DÍA 3 (Miércoles)",
-          "split": "LEGS 2 (Gimnasio)",
+          "split": "LEGS CADENA POSTERIOR(Gimnasio)",
           "color": "green",
           "details": [
             {
@@ -2782,7 +2782,7 @@ const rawSplitData = {
         {
           "id": "d4",
           "dayName": "DÍA 4 (Jueves)",
-          "split": "PULL 1 (Calistenia)",
+          "split": "PULL (Calistenia)",
           "color": "blue",
           "details": [
             {
@@ -2806,7 +2806,7 @@ const rawSplitData = {
         {
           "id": "d5",
           "dayName": "DÍA 5 (Viernes)",
-          "split": "PUSH 1 (Gimnasio)",
+          "split": "PUSH (Gimnasio)",
           "color": "purple",
           "details": [
             {
@@ -2830,7 +2830,7 @@ const rawSplitData = {
         {
           "id": "d6",
           "dayName": "DÍA 6 (Sábado)",
-          "split": "LEGS 1 (Gimnasio)",
+          "split": "LEGS CUADRICEPS(Gimnasio)",
           "color": "green",
           "details": [
             {

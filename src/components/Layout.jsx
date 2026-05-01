@@ -1,11 +1,10 @@
 import { Outlet, NavLink } from 'react-router-dom';
-import { Activity, LayoutDashboard, GitMerge, Database, CalendarDays } from 'lucide-react';
-
+import { Activity, LayoutDashboard, GitMerge, Database, CalendarDays, Utensils } from 'lucide-react';
 export default function Layout() {
   return (
     <div className="font-sans antialiased p-4 md:p-8 min-h-screen text-gray-200">
       <div className="max-w-7xl mx-auto space-y-6">
-        
+
         {/* HEADER / PRESENTACIÓN */}
         <header className="panel p-6 border-l-4 border-accent-blue relative overflow-hidden">
           <div className="relative z-10">
@@ -29,29 +28,29 @@ export default function Layout() {
 
         {/* NAVEGACIÓN */}
         <nav className="panel p-2 flex gap-2 flex-wrap">
-          <NavLink 
-            to="/" 
-            className={({ isActive }) => 
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded transition-colors ${isActive ? 'bg-dark-700 text-accent-blue font-semibold' : 'text-gray-400 hover:text-white hover:bg-dark-900'}`
             }
           >
             <LayoutDashboard size={18} />
             Dashboard
           </NavLink>
-          
-          <NavLink 
-            to="/estructura" 
-            className={({ isActive }) => 
+
+          <NavLink
+            to="/estructura"
+            className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded transition-colors ${isActive ? 'bg-dark-700 text-yellow-500 font-semibold' : 'text-gray-400 hover:text-white hover:bg-dark-900'}`
             }
           >
             <CalendarDays size={18} />
             Estructura Semanal
           </NavLink>
-          
-          <NavLink 
-            to="/split" 
-            className={({ isActive }) => 
+
+          <NavLink
+            to="/split"
+            className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded transition-colors ${isActive ? 'bg-dark-700 text-accent-green font-semibold' : 'text-gray-400 hover:text-white hover:bg-dark-900'}`
             }
           >
@@ -59,17 +58,27 @@ export default function Layout() {
             Rutina & Split
           </NavLink>
 
-          <NavLink 
-            to="/databases" 
-            className={({ isActive }) => 
+          <NavLink
+            to="/databases"
+            className={({ isActive }) =>
               `flex items-center gap-2 px-4 py-2 rounded transition-colors ${isActive ? 'bg-dark-700 text-accent-purple font-semibold' : 'text-gray-400 hover:text-white hover:bg-dark-900'}`
             }
           >
             <Database size={18} />
             Bases de Datos
           </NavLink>
-          
-          <NavLink 
+
+          <NavLink
+            to="/alimentacion"
+            className={({ isActive }) =>
+              `flex items-center gap-2 px-4 py-2 rounded transition-colors ${isActive ? 'bg-dark-700 text-red-400 font-semibold' : 'text-gray-400 hover:text-white hover:bg-dark-900'}`
+            }
+          >
+            <Utensils size={18} />
+            Alimentación
+          </NavLink>
+
+          {/* <NavLink 
             to="/hevy" 
             className={({ isActive }) => 
               `flex items-center gap-2 px-4 py-2 rounded transition-colors ${isActive ? 'bg-dark-700 text-orange-500 font-semibold' : 'text-gray-400 hover:text-white hover:bg-dark-900'}`
@@ -77,14 +86,14 @@ export default function Layout() {
           >
             <Activity size={18} className="text-orange-500" />
             Hevy Analytics
-          </NavLink>
+          </NavLink> */}
         </nav>
 
         {/* CONTENIDO DE CARGA (RUTAS) */}
         <main>
           <Outlet />
         </main>
-        
+
       </div>
     </div>
   );

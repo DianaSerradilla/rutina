@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Target, ClipboardList, PlusCircle, Activity, Dumbbell } from 'lucide-react';
+import { Target, ClipboardList, PlusCircle, Activity, Dumbbell, AlertTriangle } from 'lucide-react';
 import EstructuraSemanal from '../components/EstructuraSemanal';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { splitData } from '../data/routineData';
+import { nutritionData } from '../data/nutritionData';
 import { supabase } from '../lib/supabase';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
@@ -114,6 +115,18 @@ export default function Dashboard() {
   const todayId = getTodayId();
   const todayRoutine = splitData[quickMeso]?.[quickWeek]?.days?.find(d => d.id === todayId);
 
+  const daysMap = {
+    'd1': 'Lunes',
+    'd2': 'Martes',
+    'd3': 'Miércoles',
+    'd4': 'Jueves',
+    'd5': 'Viernes',
+    'd6': 'Sábado',
+    'd7': 'Domingo'
+  };
+  const todayDayName = daysMap[todayId];
+  const todayNutrition = nutritionData.esquema_semanal.find(d => d.dia === todayDayName);
+
   const targets = [
     { id: 'squat', title: 'SQUAT', target: 80, unit: 'kg', subtitle: 'Sin butt wink' },
     { id: 'deadlift', title: 'DEADLIFT', target: 100, unit: 'kg', subtitle: 'Sin straps' },
@@ -206,6 +219,34 @@ export default function Dashboard() {
                 </li>
               ))}
             </ul>
+
+            {quickWeek === 'week4' && (
+              <div className="mt-4 bg-accent-purple/10 border-l-4 border-accent-purple p-3 rounded">
+                <div className="flex items-center gap-2 mb-2">
+                  <AlertTriangle className="text-accent-purple" size={16} />
+                  <span className="text-xs font-bold text-accent-purple uppercase tracking-wider">Ajustes Clínicos - Descarga Metabólica</span>
+                </div>
+                <ul className="space-y-2 text-xs text-gray-300 leading-relaxed">
+                  <li><strong className="text-white">Pre-Entreno:</strong> Elimina dátiles y miel. Solo Café negro + Creatina (10g) + puñado de frambuesas.</li>
+                  <li><strong className="text-white">Comidas Carbo-Proteicas:</strong> Reducción del 30% en almidones. Arroz/Fideos/Quinoa a 40g (en crudo) o Papa/Camote a 100g (en crudo).</li>
+                </ul>
+              </div>
+            )}
+
+            {todayNutrition && (
+              <div className="mt-4 pt-4 border-t border-dark-700 flex flex-col md:flex-row gap-4">
+                <div className={`flex-1 bg-dark-800 p-3 rounded border-l-2 ${todayNutrition.almuerzo.tipo.includes('Carbo') ? 'border-orange-400' : 'border-accent-purple'}`}>
+                  <span className="text-[10px] text-gray-400 font-bold block mb-1">ALMUERZO</span>
+                  <span className={`text-sm font-bold ${todayNutrition.almuerzo.tipo.includes('Carbo') ? 'text-orange-400' : 'text-accent-purple'}`}>{todayNutrition.almuerzo.tipo}</span>
+                  {todayNutrition.almuerzo.desc && <p className="text-xs text-gray-400 mt-1 leading-relaxed">{todayNutrition.almuerzo.desc}</p>}
+                </div>
+                <div className={`flex-1 bg-dark-800 p-3 rounded border-l-2 ${todayNutrition.cena.tipo.includes('Carbo') ? 'border-orange-400' : 'border-accent-purple'}`}>
+                  <span className="text-[10px] text-gray-400 font-bold block mb-1">CENA</span>
+                  <span className={`text-sm font-bold ${todayNutrition.cena.tipo.includes('Carbo') ? 'text-orange-400' : 'text-accent-purple'}`}>{todayNutrition.cena.tipo}</span>
+                  {todayNutrition.cena.desc && <p className="text-xs text-gray-400 mt-1 leading-relaxed">{todayNutrition.cena.desc}</p>}
+                </div>
+              </div>
+            )}
           </div>
         ) : (
           <p className="text-sm text-gray-500 italic">No hay rutina asignada para hoy.</p>

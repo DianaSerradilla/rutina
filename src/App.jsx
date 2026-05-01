@@ -4,6 +4,7 @@ import Dashboard from './pages/Dashboard';
 import EstructuraSemanal from './pages/EstructuraSemanal';
 import TrainingSplit from './pages/TrainingSplit';
 import Databases from './pages/Databases';
+import Nutrition from './pages/Nutrition';
 
 import HevyStats from './pages/HevyStats';
 
@@ -16,6 +17,7 @@ function App() {
           <Route path="estructura" element={<EstructuraSemanal />} />
           <Route path="split" element={<TrainingSplit />} />
           <Route path="databases" element={<Databases />} />
+          <Route path="alimentacion" element={<Nutrition />} />
           <Route path="hevy" element={<HevyStats />} />
         </Route>
       </Routes>
